@@ -15,7 +15,10 @@ prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
 while True:
+    print("\n\n-------------------------------------------------------------")
     question = input("Enter your question or (q) to quit:")
+
+    print("\n\n")
     if question.lower() == "q":
         break
     reviews = retriver.invoke(question)
