@@ -1,6 +1,6 @@
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
-
+from vector import retriver
 
 model = ChatOllama(model="llama3.2")
 
@@ -18,6 +18,6 @@ while True:
     question = input("Enter your question or (q) to quit:")
     if question.lower() == "q":
         break
-
-    result = chain.invoke({"reviews": [], "question": question})
+    reviews = retriver.invoke(question)
+    result = chain.invoke({"reviews": reviews, "question": question})
     print(result)
